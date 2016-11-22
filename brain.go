@@ -46,12 +46,12 @@ func (bot *golackbot) process(msg slack.Msg) {
 
 func (bot *golackbot) Respond(reg string, f func(msg slack.Msg)) {
 	bot.respondReactions = append(bot.respondReactions, reaction{reg: reg, exec: f})
-	fmt.Printf("Responding item added: %s\n", reg)
+	fmt.Printf("Responding item is added: %s\n", reg)
 }
 
 func (bot *golackbot) Hear(reg string, f func(msg slack.Msg)) {
 	bot.hearReactions = append(bot.hearReactions, reaction{reg: reg, exec: f})
-	fmt.Printf("Hearing item added: %s\n", reg)
+	fmt.Printf("Hearing item is added: %s\n", reg)
 }
 
 func (bot *golackbot) GenerateMsgLink(msg slack.Msg) string {
