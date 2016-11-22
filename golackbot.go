@@ -10,6 +10,7 @@ type GolackBot interface {
 	SendTo(msg slack.Msg, text string, channel string)
 	Say(msg slack.Msg, text string)
 	Reply(msg slack.Msg, text string)
+	Forget(reg string)
 	LoadConfig(path string)
 	SayMyName() string
 	GenerateMsgLink(msg slack.Msg) string

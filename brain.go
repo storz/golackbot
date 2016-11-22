@@ -54,6 +54,23 @@ func (bot *golackbot) Hear(reg string, f func(msg slack.Msg)) {
 	fmt.Printf("Hearing item is added: %s\n", reg)
 }
 
+func (bot *golackbot) Forget(reg string) {
+	for i, r := range bot.respondReactions {
+		if r.reg == reg {
+			bot.respondReactions = append(bot.respondReactions[:i], bot.respondReactions[i+1:]...)
+			fmt.Printf("Hearing item is removed: %s\n", reg)
+			break
+		}
+	}
+	for i, r := range bot.hearReactions {
+		if r.reg == reg {
+			bot.hearReactions = append(bot.hearReactions[:i], bot.hearReactions[i+1:]...)
+			fmt.Printf("Responding item is removed: %s\n", reg)
+			break
+		}
+	}
+}
+
 func (bot *golackbot) GenerateMsgLink(msg slack.Msg) string {
 	teamInfo, err := bot.api.GetTeamInfo()
 	if err != nil {
