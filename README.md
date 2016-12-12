@@ -37,7 +37,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	bot.LoadConfig("config.tml")
+	bot.LoadConfig(cfgPath)
 	bot.Listen()
 }
 ```
