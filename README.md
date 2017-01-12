@@ -22,7 +22,6 @@ aka      = [ "GAMI" ]
 package main
 
 import (
-	"fmt"
 	"path/filepath"
 
 	"github.com/storz/golackbot"
