@@ -14,6 +14,7 @@ type GolackBot interface {
 	LoadConfig(path string)
 	SayMyName() string
 	GenerateMsgLink(msg slack.Msg) string
+	GetAPI() *slack.Client
 }
 
 type golackbot struct {
@@ -34,6 +35,10 @@ type reaction struct {
 // NewBot is initializer. But instance has no identity
 func NewBot() GolackBot {
 	return &golackbot{}
+}
+
+func (bot *golackbot) GetAPI() *slack.Client {
+	return bot.api
 }
 
 func (bot *golackbot) SayMyName() string {
